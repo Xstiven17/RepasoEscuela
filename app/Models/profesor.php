@@ -12,6 +12,9 @@ class profesor extends Model
     protected $fillable = ['dni', 'apellidos'];
 
     public function curso(){
-        return $this->hasMany(curso::class);
+        return $this->hasMany(Curso::class, 'tutor_id');    }
+
+    public function asignaturas(){
+        return $this->hasMany(Asignatura::class);
     }
 }

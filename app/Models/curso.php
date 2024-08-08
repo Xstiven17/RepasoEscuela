@@ -9,9 +9,13 @@ class curso extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['codigo', 'nombre'];
+    protected $fillable = ['codigo', 'nombre', 'tutor_id'];
+
+    public function asignaturas(){
+        return $this->hasMany(Asignatura::class);
+    }
 
     public function profesor(){
-        return $this->belongsTo(profesor::class);
+ return $this->belongsTo(Profesor::class, 'tutor_id');
     }
 }

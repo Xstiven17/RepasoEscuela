@@ -17,6 +17,14 @@ return new class extends Migration
             $table->string('nombre');
             $table->string('dia');
             $table->string('mes');
+
+             // Relaciones foráneas
+    $table->unsignedBigInteger('curso_id');
+    $table->unsignedBigInteger('aula_id');
+    $table->unsignedBigInteger('profesor_id');
+    $table->foreign('curso_id')->references('id')->on('cursos')->onDelete('cascade');
+    $table->foreign('aula_id')->references('id')->on('aulas')->onDelete('cascade');
+    $table->foreign('profesor_id')->references('id')->on('profesores')->onDelete('cascade');
             $table->timestamps();
         });
 

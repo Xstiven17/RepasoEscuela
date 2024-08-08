@@ -9,9 +9,9 @@ class aula extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['dni', 'apellidos'];
+    protected $fillable = ['codigo', 'piso', 'pupitres'];
 
     public function asignatura(){
-        return $this->belongsTo(asignatura::class);
+        return $this->hasMany(asignatura::class);
     }
 }
